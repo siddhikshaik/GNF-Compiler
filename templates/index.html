@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GNF Compiler Lab — Final</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="cursor-glow"></div>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">G</div>
+    <div><span>FORMAL LANGUAGES · AUTOMATA THEORY</span><h1>GNF Compiler Lab</h1></div>
+  </div>
+  <div class="tag">CFG → GNF</div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="kicker">ANALYZE · TRANSFORM · VALIDATE</span>
+    <h2>Turn a CFG into a verified Greibach Normal Form.</h2>
+    <p>A visual grammar laboratory that exposes the algorithm instead of hiding it.</p>
+  </div>
+  <div class="hero-orbit" aria-hidden="true"><div class="orbit orbit1"></div><div class="orbit orbit2"></div><div class="core">GNF</div></div>
+</section>
+
+<section class="workspace">
+  <div class="panel input-panel reveal">
+    <div class="panel-title"><div><span class="step">01</span><h3>Input Context-Free Grammar</h3></div><span class="live">READY</span></div>
+    <textarea id="grammar" spellcheck="false">S -> AB | a
+A -> a
+B -> b</textarea>
+    <div class="hint">Tip: variables are taken from left-hand sides. Use spaces for multi-character symbols.</div>
+    <div class="actions">
+      <button id="analyze" class="secondary">Analyze Grammar</button>
+      <button id="convert" class="primary">Run GNF Compiler <span>→</span></button>
+    </div>
+  </div>
+
+  <div class="panel reveal">
+    <div class="panel-title"><div><span class="step">02</span><h3>Grammar Diagnostics</h3></div><span id="diagnosticBadge" class="status neutral">WAITING</span></div>
+    <div id="stats" class="stats"></div>
+    <div id="diagnostics" class="diagnostics">Run analysis to inspect the grammar.</div>
+  </div>
+</section>
+
+<section class="panel pipeline-panel reveal">
+  <div class="panel-title">
+    <div><span class="step">03</span><h3>Compiler Transformation Pipeline</h3></div>
+    <span id="resultBadge" class="status neutral">NOT RUN</span>
+  </div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <div id="pipeline" class="pipeline-empty">Press “Run GNF Compiler” to start the animated transformation.</div>
+</section>
+
+<section id="finalReport" class="panel report reveal hidden"></section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
